@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coding Gen – Free Online Code Runner</title>
+<meta name="description" content="Write and run JavaScript and Python in your browser. No account, no daily limits, code never leaves your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home"><span class="logo" aria-hidden="true">&lt;/&gt;</span> Coding Gen</a>
+  <button id="menuBtn" class="icon menu" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#home">Home</a><a href="#compiler">Compiler</a><a href="#examples-info">Examples</a><a href="#about">About</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>
+  </nav>
+  <button id="themeBtn" class="icon" aria-label="Toggle light/dark theme">◐</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <h1>Coding Gen</h1>
+  <p class="tag">Write Code. Run Anywhere. Learn Without Limits.</p>
+  <p>A free browser IDE. Programs run on <em>your</em> device — no accounts, no credits, no submission quota.</p>
+  <div class="ad" data-ad="home" hidden></div>
+</section>
+
+<section id="compiler" aria-label="Code workspace">
+  <div class="bar">
+    <label>Language
+      <select id="lang">
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python (Pyodide)</option>
+        <option disabled>C — not implemented yet</option>
+        <option disabled>C++ — not implemented yet</option>
+        <option disabled>Java — not implemented yet</option>
+      </select></label>
+    <label>Example <select id="examples"><option value="">Load example…</option></select></label>
+    <button id="run" class="primary">▶ Run</button>
+    <button id="stop" disabled>■ Stop</button>
+    <span id="status" role="status" aria-live="polite">Loading editor…</span>
+  </div>
+  <div class="bar small">
+    <button id="reset">Reset</button><button id="newp">New</button><button id="copy">Copy</button><button id="download">Download</button>
+    <label class="btn">Import<input id="import" type="file" accept=".js,.py,.txt" hidden></label>
+    <button id="save">Save as…</button>
+    <select id="projects" aria-label="Saved projects"><option value="">Saved projects</option></select>
+    <button id="rename">Rename</button><button id="del">Delete</button>
+    <label>Font <input id="fsize" type="number" min="10" max="28" value="14"></label>
+    <label><input id="wrap" type="checkbox"> Wrap</label>
+    <label>Timeout <select id="timeout"><option value="5000">5 s</option><option value="10000" selected>10 s</option><option value="30000">30 s</option><option value="120000">2 min</option></select></label>
+  </div>
+  <div id="editor" aria-label="Code editor"></div>
+  <div class="io">
+    <div class="panel"><div class="ph"><strong>Input (stdin)</strong></div>
+      <textarea id="stdin" spellcheck="false" aria-label="Program input" placeholder="One line per input() / readLine() call"></textarea></div>
+    <div class="panel"><div class="ph"><strong>Output</strong><button id="clear" class="mini">Clear</button></div>
+      <pre id="out" tabindex="0" aria-label="Program output"></pre></div>
+  </div>
+  <p class="note">Saved programs live only in this browser (localStorage). Clearing site data deletes them — it is not a cloud backup.</p>
+  <div class="ad" data-ad="below" hidden></div>
+</section>
+
+<section id="examples-info" class="info"><h2>Examples</h2>
+  <p>Use the “Load example” menu to put a sample into the editor. Examples are never run automatically.</p></section>
+<section id="about" class="info"><h2>About</h2>
+  <p>Coding Gen runs JavaScript in a dedicated Web Worker and Python through <a href="https://pyodide.org">Pyodide</a> (CPython compiled to WebAssembly). Python package availability depends on Pyodide. Performance depends on your device and browser. “Unlimited” here means no artificial quota — not unlimited CPU or memory.</p>
+  <p>C, C++ and Java are not yet supported; they need large browser toolchains that haven't been integrated or verified.</p></section>
+<section id="privacy" class="info"><h2>Privacy Policy</h2>
+  <p>Your source code and input are executed and stored locally in your browser and are not sent to any Coding Gen server (there is none). Editor and Python runtime files are downloaded from the jsDelivr CDN, which sees normal request metadata such as your IP address. Code you run can itself make network requests — only run code you understand. If advertising is enabled in future, Google may use cookies; this policy will be updated before that happens.</p></section>
+<section id="contact" class="info"><h2>Contact</h2>
+  <p>Replace this paragraph with your real contact email or issue-tracker link before applying for AdSense.</p></section>
+</main>
+<footer>© Coding Gen · Runs entirely in your browser</footer>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
